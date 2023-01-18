@@ -3,7 +3,7 @@
 #
 PACKAGECONFIG += " readline testing tools"
 
-do_install_append() {
+do_install:append() {
    install -d ${D}/opt/tests/${PN}
    mv ${D}/${libdir}/bluez/test/* ${D}/opt/tests/${PN}
    rmdir ${D}/${libdir}/bluez/test

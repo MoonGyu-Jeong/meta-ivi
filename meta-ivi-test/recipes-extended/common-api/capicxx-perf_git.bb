@@ -28,7 +28,7 @@ FILES_${PN}-dbg += " \
     ${_installdir}/.debug/* \
     "
 
-do_configure_prepend() {
+do_configure:prepend() {
     capi_core_home=$(dirname `find ${WORKDIR}/recipe-sysroot-native -name commonapi-generator-linux-x86`)
     capi_dbus_home=$(dirname `find ${WORKDIR}/recipe-sysroot-native -name commonapi-dbus-generator-linux-x86`)
     if [ -L /usr/bin/java ]; then
@@ -46,7 +46,7 @@ do_configure_prepend() {
     fi
 }
 
-do_install_append() {
+do_install:append() {
     _DEST=${D}${_installdir}
     install -d ${_DEST}
     mv ${D}/usr/bin/* ${_DEST}

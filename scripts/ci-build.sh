@@ -498,8 +498,8 @@ fi
 # checked, if the user has defined any other in conf files.
 
 if [[ -n "$PREMIRROR" ]]; then
-  append_local_conf PREMIRRORS_prepend "
-PREMIRRORS_prepend = \"\\
+  append_local_conf PREMIRRORS:prepend "
+PREMIRRORS:prepend = \"\\
      git://.*/.* $PREMIRROR \\n \\
      http://.*/.* $PREMIRROR \\n \\
      https://.*/.* $PREMIRROR \\n \\
@@ -511,8 +511,8 @@ fi
 # WE *app*pend MIRROR because we want it to be the last mirror that is checked,
 # if the user has defined others in conf files.
 if [[ -n "$MIRROR" ]]; then
-  append_local_conf MIRRORS_append "
-MIRRORS_append = \"\\
+  append_local_conf MIRRORS:append "
+MIRRORS:append = \"\\
      git://.*/.* $MIRROR \\n \\
      http://.*/.* $MIRROR \\n \\
      https://.*/.* $MIRROR \\n \\

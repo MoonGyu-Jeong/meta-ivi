@@ -88,7 +88,7 @@ index 207ac21..ded4487 100644
  						btd_service_state_t new_state,
 @@ -230,6 +275,12 @@ static void service_cb(struct btd_service *service,
  	case BTD_SERVICE_STATE_UNAVAILABLE:
- 		data_remove(data);
+ 		data:remove(data);
  		return;
 +	case BTD_SERVICE_STATE_CONNECTED:
 +		service_connected(data);

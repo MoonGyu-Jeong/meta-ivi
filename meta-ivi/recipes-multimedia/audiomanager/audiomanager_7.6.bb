@@ -34,7 +34,7 @@ FILES_${PN}-dev += " \
     ${libdir}/* \
     "
 
-do_install_append() {
+do_install:append() {
     if ${@bb.utils.contains('DISTRO_FEATURES','systemd','true','false',d)}; then
         mkdir -p ${D}${systemd_unitdir}/scripts/
         install -m 0755 ${WORKDIR}/setup_amgr.sh ${D}${systemd_unitdir}/scripts/setup_amgr.sh

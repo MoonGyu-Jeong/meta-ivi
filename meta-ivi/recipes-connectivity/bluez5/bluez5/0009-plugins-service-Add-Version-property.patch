@@ -30,7 +30,7 @@ index 128ad7c..c2584c0 100644
 +	struct service_data *data = user_data;
 +	uint16_t version = btd_service_get_version(data->service);
 +
-+	dbus_message_iter_append_basic(iter, DBUS_TYPE_UINT16, &version);
++	dbus_message_iter:append_basic(iter, DBUS_TYPE_UINT16, &version);
 +
 +	return TRUE;
 +}

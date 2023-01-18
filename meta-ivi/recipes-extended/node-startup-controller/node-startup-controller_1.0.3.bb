@@ -23,7 +23,7 @@ RDEPENDS_${PN} = "node-state-manager"
 
 inherit autotools gtk-doc systemd
 
-do_configure_prepend () {
+do_configure:prepend () {
         mkdir -p ${S}/m4
 }
 

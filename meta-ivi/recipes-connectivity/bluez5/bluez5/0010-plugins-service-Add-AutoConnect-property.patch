@@ -21,7 +21,7 @@ index c2584c0..bca3abd 100644
 +	struct service_data *data = user_data;
 +	dbus_bool_t value = btd_service_get_auto_connect(data->service);
 +
-+	dbus_message_iter_append_basic(iter, DBUS_TYPE_BOOLEAN, &value);
++	dbus_message_iter:append_basic(iter, DBUS_TYPE_BOOLEAN, &value);
 +
 +	return TRUE;
 +}

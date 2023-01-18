@@ -21,11 +21,11 @@ SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE_${PN} = "pas-daemon.service"
 SYSTEMD_AUTO_ENABLE = "disable"
 
-do_configure_prepend() {
+do_configure:prepend() {
    cp ${S}/README.md ${S}/README
 }
 
-do_install_append() {
+do_install:append() {
    perl -pi -e 's/dbus-public-bus.service/dbus.service/' \
 	${D}/lib/systemd/system/pas-daemon.service
    rm -f ${D}${bindir}/pers_admin_test_framework

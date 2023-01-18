@@ -1,4 +1,4 @@
-EXTRA_OECONF_append_vexpressa9 = "\
+EXTRA_OECONF:append_vexpressa9 = "\
 		WESTON_NATIVE_BACKEND=fbdev-backend.so \
 		"
 

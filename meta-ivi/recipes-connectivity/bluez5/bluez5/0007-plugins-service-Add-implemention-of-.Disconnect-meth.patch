@@ -29,7 +29,7 @@ index ded4487..69bae8f 100644
  	g_free(data->path);
  	g_free(data);
  }
-@@ -88,7 +92,22 @@ static void data_remove(struct service_data *data)
+@@ -88,7 +92,22 @@ static void data:remove(struct service_data *data)
  static DBusMessage *service_disconnect(DBusConnection *conn, DBusMessage *msg,
  								void *user_data)
  {

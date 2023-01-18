@@ -1,8 +1,8 @@
 #
 # for test
 #
-FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
-SRC_URI_append += " \
+FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
+SRC_URI:append += " \
     http://googletest.googlecode.com/files/gtest-1.7.0.zip \
     file://${BPN}_t.inc \
     "
@@ -12,11 +12,11 @@ SRC_URI[sha256sum] = "247ca18dd83f53deb1328be17e4b1be31514cedfc1e3424f672bf11fd7
 RDEPENDS_${PN}-test += "bash"
 
 EXTRA_OECONF += " -DTEST_IP_MASTER=10.0.3.1 -DTEST_IP_SLAVE=10.0.3.125 "
-do_configure_prepend() {
+do_configure:prepend() {
    export GTEST_ROOT=${WORKDIR}/gtest-1.7.0
 }
 
-do_compile_append() {
+do_compile:append() {
    _B=`pwd`
 #   perl -pi -e "s|-Wl,-rpath,${_B}||" build.ninja
    ninja examples
@@ -24,7 +24,7 @@ do_compile_append() {
    ninja build_tests
 }
 
-do_install_append() {
+do_install:append() {
 
     perl -pi -e 's|../daemon/./vsomeipd|${bindir}/vsomeipd|' ${B}/test/*.sh
 

@@ -45,7 +45,7 @@ index 0c22d79..b660810 100644
 +
 +	state = data_get_state(data);
 +
-+	dbus_message_iter_append_basic(iter, DBUS_TYPE_STRING, &state);
++	dbus_message_iter:append_basic(iter, DBUS_TYPE_STRING, &state);
 +
 +	return TRUE;
 +}
@@ -70,7 +70,7 @@ index 0c22d79..b660810 100644
 @@ -146,10 +186,13 @@ static void service_cb(struct btd_service *service,
  	switch (new_state) {
  	case BTD_SERVICE_STATE_UNAVAILABLE:
- 		data_remove(data);
+ 		data:remove(data);
 -		break;
 -	default:
  		return;

@@ -1,6 +1,6 @@
-FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
+FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
 
-PACKAGECONFIG_append = " obex-profiles"
+PACKAGECONFIG:append = " obex-profiles"
 
 #
 # Service API reference implementation
@@ -9,7 +9,7 @@ PACKAGECONFIG_append = " obex-profiles"
 # Actual patches copied from:
 # http://git.baserock.org/cgit/delta/bluez.git/log/?h=baserock/5.37-19-g28fef24
 #
-SRC_URI_append = " \
+SRC_URI:append = " \
 	file://0001-plugins-Add-initial-code-for-service-plugin.patch          \
 	file://0002-plugins-service-Add-initial-code.patch                     \
 	file://0003-plugins-service-Add-State-property.patch                   \
@@ -36,7 +36,7 @@ EXTRA_OECONF += "--enable-service --enable-sixaxis "
 PACKAGES =+ " libbluetooth-plugins-service "
 FILES_libbluetooth-plugins-service = "${libdir}/bluetooth/plugins/*.so"
 
-do_configure_prepend() {
+do_configure:prepend() {
     if [ -f configure ]; then
        rm -f configure
     fi

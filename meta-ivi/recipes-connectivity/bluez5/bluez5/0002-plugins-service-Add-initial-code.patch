@@ -66,9 +66,9 @@ index e63d8a8..0c22d79 100644
 +	g_free(data);
 +}
 +
-+static void data_remove(struct service_data *data)
++static void data:remove(struct service_data *data)
 +{
-+	services = g_slist_remove(services, data);
++	services = g_slist:remove(services, data);
 +	g_dbus_unregister_interface(btd_get_dbus_connection(), data->path,
 +							SERVICE_INTERFACE);
 +}
@@ -117,7 +117,7 @@ index e63d8a8..0c22d79 100644
 +		return NULL;
 +	}
 +
-+	services = g_slist_prepend(services, data);
++	services = g_slist:prepend(services, data);
 +
 +	DBG("%s", data->path);
 +
@@ -137,7 +137,7 @@ index e63d8a8..0c22d79 100644
 +
 +	switch (new_state) {
 +	case BTD_SERVICE_STATE_UNAVAILABLE:
-+		data_remove(data);
++		data:remove(data);
 +		break;
 +	default:
 +		return;
@@ -157,7 +157,7 @@ index e63d8a8..0c22d79 100644
  {
  	DBG("");
 +
-+	btd_service_remove_state_cb(service_id);
++	btd_service:remove_state_cb(service_id);
 +
 +	g_slist_free_full(services, data_free);
  }

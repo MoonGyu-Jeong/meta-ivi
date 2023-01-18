@@ -1,10 +1,10 @@
 # Find defconfig path
-FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
+FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
 
 # Kernel configs
-SRC_URI_append_vexpressa9   = " file://vexpress_a9.cfg"
-SRC_URI_append_qemux86      = " file://qemux86.cfg"
-SRC_URI_append_qemux86-64   = " file://qemux86_64.cfg"
+SRC_URI:append_vexpressa9   = " file://vexpress_a9.cfg"
+SRC_URI:append_qemux86      = " file://qemux86.cfg"
+SRC_URI:append_qemux86-64   = " file://qemux86_64.cfg"
 
 # vexpress-a9 support
 KMACHINE_vexpressa9 = "qemuarma9"

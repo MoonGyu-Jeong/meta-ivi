@@ -1,11 +1,11 @@
 #
 # test
 #
-FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
-SRC_URI_append += " file://${BPN}_t.inc \
+FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
+SRC_URI:append += " file://${BPN}_t.inc \
     "
 
-do_install_append() {
+do_install:append() {
    install -d ${D}/opt/tests/${PN}
    mv ${S}/test/pers_svc_test/.libs/pers_admin_test_framework \
        ${D}/opt/tests/${PN}

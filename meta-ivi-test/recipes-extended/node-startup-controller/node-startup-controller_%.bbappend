@@ -1,13 +1,13 @@
 #
 # for test
 #
-FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
-SRC_URI_append += " \
+FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
+SRC_URI:append += " \
     file://helper.zip \
     file://${BPN}_t.inc \
     "
 
-do_install_append() {
+do_install:append() {
    install -d ${D}/opt/tests/${PN}
    install -m 0755 ${WORKDIR}/helper/*.sh ${D}/opt/tests/${PN}
    install -m 0644 ${WORKDIR}/helper/*.service ${D}/${systemd_unitdir}/system

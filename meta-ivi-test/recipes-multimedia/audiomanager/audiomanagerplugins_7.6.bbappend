@@ -1,14 +1,14 @@
-FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
-SRC_URI_append += " \
+FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
+SRC_URI:append += " \
     file://${BPN}_t-${PV}.inc \
     "
 
-EXTRA_OECMAKE_remove = "-DWITH_TESTS=OFF"
-EXTRA_OECMAKE_append = " -DWITH_TEST_CONTROLLER=ON -DWITH_TESTS=ON"
+EXTRA_OECMAKE:remove = "-DWITH_TESTS=OFF"
+EXTRA_OECMAKE:append = " -DWITH_TEST_CONTROLLER=ON -DWITH_TESTS=ON"
 
 DEPENDS += "gtest gmock"
 
-do_install_append() {
+do_install:append() {
     mv ${D}/opt/tests/audiomanager ${D}/opt/tests/${PN}
 
     install -m 0755 ${WORKDIR}/${BPN}_t-${PV}.inc ${D}/opt/tests/${PN}/${BPN}_t.inc

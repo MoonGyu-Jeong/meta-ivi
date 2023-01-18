@@ -55,6 +55,6 @@ SYSTEMD_AUTO_ENABLE_${PN}-systemd = "disable"
 
 FILES_${PN}-doc += "${datadir}/dlt-filetransfer"
 
-do_install_append() {
+do_install:append() {
     rm -f ${D}${bindir}/dlt-test-*
 }

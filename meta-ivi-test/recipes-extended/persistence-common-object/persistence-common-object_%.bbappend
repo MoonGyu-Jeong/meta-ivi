@@ -1,18 +1,18 @@
 #
 # for test
 #
-FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
-SRC_URI_append += " file://${BPN}_t.inc \
+FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
+SRC_URI:append += " file://${BPN}_t.inc \
     "
 
 EXTRA_OECONF += " --enable-tests "
 
-do_configure_append() {
+do_configure:append() {
    perl -pi -e 's|usr/local/var|opt/tests/persistence-common-object|' \
      ${S}/test/test_pco_key_value_store.c
 }
 
-do_install_append() {
+do_install:append() {
    install -d ${D}/opt/tests/${PN}
    install -m 0755 ${S}/test/.libs/test_pco_key_value_store \
        ${D}/opt/tests/${PN}

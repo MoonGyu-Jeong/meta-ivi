@@ -25,7 +25,7 @@ EXTRA_OECMAKE = " \
     -DWITH_GENERIC_CONTROLLER=ON \
     "
 
-do_configure_prepend() {
+do_configure:prepend() {
     capi_core_home=$(dirname `find ${WORKDIR}/recipe-sysroot-native -name commonapi-generator-linux-x86_64`)
     capi_dbus_home=$(dirname `find ${WORKDIR}/recipe-sysroot-native -name commonapi-dbus-generator-linux-x86_64`)
     if [ -L /usr/bin/java ]; then
@@ -54,7 +54,7 @@ do_configure_prepend() {
     perl -pi -e 's|COMMAND find "/usr/local/share/.*"|COMMAND find "\${PKG_CONFIG_SYSROOT_DIR}/../"|' ${S}/PluginCommandInterfaceCAPI/cmake/CommonAPI.cmake
 }
 
-do_configure_append() {
+do_configure:append() {
     perl -pi -e 's|/\* #undef LIBRARY_OUTPUT_PATH \*/|#define LIBRARY_OUTPUT_PATH "/usr/lib/command"|' ${S}/PluginCommandInterfaceDbus/include/configCommandDbus.h
 }
 

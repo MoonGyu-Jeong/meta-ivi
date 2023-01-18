@@ -1,16 +1,16 @@
 #
 # for testing
 #
-FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
+FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
 
-SRC_URI_append += " \
+SRC_URI:append += " \
     file://0001-disable-sanitizers.patch \
     "
 
 DEPENDS += " gtest"
 EXTRA_OECMAKE += " -DBUILD_ILM_API_TESTS=1 -DINSTALL_ILM_API_TESTS=1"
 
-do_install_append() {
+do_install:append() {
    install -d ${D}/opt/tests/${PN}
    mv ${D}/${bindir}/*test ${D}/opt/tests/${PN}
 }

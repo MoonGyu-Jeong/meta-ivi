@@ -1,11 +1,11 @@
 #
 # for test
 #
-FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
-SRC_URI_append += " \
+FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
+SRC_URI:append += " \
     file://${BPN}_t.inc \
     "
-SRC_URI_append += " \
+SRC_URI:append += " \
     http://googletest.googlecode.com/files/gtest-1.7.0.zip \
     "
 SRC_URI[md5sum] = "2d6ec8ccdf5c46b05ba54a9fd1d130d7"
@@ -15,11 +15,11 @@ EXTRA_OECMAKE += "-DWITH_DLTTEST=ON -DCMAKE_SKIP_RPATH=ON -DWITH_MAN=OFF \
     -DGTEST_ROOT=${WORKDIR}/gtest-1.7.0 \
     "
 
-do_compile_append() {
+do_compile:append() {
    ninja build_tests
 }
 
-do_install_append() {
+do_install:append() {
    _BIN=${WORKDIR}/build/src/test
    install -d ${D}/opt/tests/${PN}
    install -m 0755 ${_BIN}/DBus*Test ${D}/opt/tests/${PN}

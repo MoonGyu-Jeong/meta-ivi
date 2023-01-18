@@ -3,18 +3,18 @@
 #
 #LOCALSTATEDIR
 #localstatedir
-FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
-SRC_URI_append += " file://${BPN}_t.inc \
+FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
+SRC_URI:append += " file://${BPN}_t.inc \
     "
 
 EXTRA_OECONF += " --enable-tests "
 
-do_configure_append() {
+do_configure:append() {
     perl -pi -e "s|LOCALSTATEDIR|\"/opt/tests/${BPN}\"|" \
       ${S}/test/persistence_client_library_test.c
 }
 
-do_install_append() {
+do_install:append() {
    install -d ${D}/opt/tests/${PN}
    install -m 0755 ${S}/test/.libs/persistence_client_library_dbus_test \
         ${D}/opt/tests/${PN}

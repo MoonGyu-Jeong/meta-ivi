@@ -22,7 +22,7 @@ PR = "r5"
 
 inherit pkgconfig autotools-brokensep
 
-EXTRA_OECONF_append = " --enable-tools --enable-pasinterface"
+EXTRA_OECONF:append = " --enable-tools --enable-pasinterface"
 
 PARALLEL_MAKE = ""
 

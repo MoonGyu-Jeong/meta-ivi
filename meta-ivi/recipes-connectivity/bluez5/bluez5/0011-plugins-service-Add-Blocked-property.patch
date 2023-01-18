@@ -21,7 +21,7 @@ index bca3abd..d1db278 100644
 +	struct service_data *data = user_data;
 +	dbus_bool_t value = btd_service_is_blocked(data->service);
 +
-+	dbus_message_iter_append_basic(iter, DBUS_TYPE_BOOLEAN, &value);
++	dbus_message_iter:append_basic(iter, DBUS_TYPE_BOOLEAN, &value);
 +
 +	return TRUE;
 +}

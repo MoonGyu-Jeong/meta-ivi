@@ -1,16 +1,16 @@
 #
 # for test
 #
-FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
-SRC_URI_append += " \
+FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
+SRC_URI:append += " \
     file://${BPN}_t.inc \
     "
 
-do_compile_append() {
+do_compile:append() {
    make -C NodeStateMachineTest
 }
 
-do_install_append() {
+do_install:append() {
    install -d ${D}/opt/tests/${PN}/lib
    install -m 0755 ${S}/NodeStateMachineTest/NodeStateTest ${D}/opt/tests/${PN}
    install -m 0644 ${S}/NodeStateMachineTest/org.genivi.NodeStateMachineTest.xml \

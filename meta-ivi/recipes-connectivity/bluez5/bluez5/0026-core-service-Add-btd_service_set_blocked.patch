@@ -44,7 +44,7 @@ index cc4eac1..2855359 100644
 +
  unsigned int btd_service_add_state_cb(btd_service_state_cb cb,
  							void *user_data);
- bool btd_service_remove_state_cb(unsigned int id);
+ bool btd_service:remove_state_cb(unsigned int id);
 -- 
 1.9.1
 

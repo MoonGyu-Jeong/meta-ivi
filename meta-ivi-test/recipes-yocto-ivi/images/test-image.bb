@@ -2,7 +2,7 @@ require recipes-yocto-ivi/images/ivi-image.bb
 
 PV = "${DATE}"
 
-IMAGE_INSTALL_append += " openssh test-fw \
+IMAGE_INSTALL:append += " openssh test-fw \
     audiomanager-test audiomanagerplugins-test \
     common-api-test capicxx-perf \
     common-api-c++-dbus-test \

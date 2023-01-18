@@ -22,7 +22,7 @@ index 69bae8f..128ad7c 100644
 +	struct btd_device *dev = btd_service_get_device(data->service);
 +	const char *path = btd_device_get_path(dev);
 +
-+	dbus_message_iter_append_basic(iter, DBUS_TYPE_OBJECT_PATH, &path);
++	dbus_message_iter:append_basic(iter, DBUS_TYPE_OBJECT_PATH, &path);
 +
 +	return TRUE;
 +}

@@ -172,7 +172,7 @@ BBLAYERS += " \
 2. add test package to your image by modifying <your build directory>/conf/bblayers.conf.
 
 ```
-IMAGE_INSTALL_append += " \
+IMAGE_INSTALL:append += " \
     audiomanager-test \
     common-api-test \
     "

@@ -30,7 +30,7 @@ SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE_${PN} = "nodestatemanager-daemon.service"
 SYSTEMD_AUTO_ENABLE = "disable"
 
-do_configure_prepend() {
+do_configure:prepend() {
 	mkdir -p m4
 	mkdir -p NodeStateAccess/doc
 	mkdir -p NodeStateAccess/generated
@@ -46,7 +46,7 @@ FILES_${PN} += "\
     ${systemd_unitdir}/system/nodestatemanager-daemon.service \
     "
 
-do_install_append() {
+do_install:append() {
     T_XML=${D}/${datadir}/dbus-1/interfaces/org.genivi.NodeStateMachineTest.xml
     if [ -f ${T_XML} ]; then
        rm -f ${T_XML}

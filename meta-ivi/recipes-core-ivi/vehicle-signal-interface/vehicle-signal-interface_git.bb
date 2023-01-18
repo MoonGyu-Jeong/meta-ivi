@@ -6,7 +6,7 @@ SECTION = "libs"
 LICENSE = "MPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=9741c346eef56131163e13b9db1241b3"
 
-FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
+FILESEXTRAPATHS:append := ":${THISDIR}/${PN}"
 
 SRC_URI = "git://github.com/GENIVI/vehicle_signal_interface.git;protocol=https"
 SRCREV = "d6c4ef72e775a7b0fd88f38ad5db5ad3df9d881b"
@@ -22,7 +22,7 @@ EXTRA_OECMAKE += "-DBUILD_PYTHON=OFF"
 SOLIBS = ".so"
 FILES_SOLIBSDEV = ""
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${includedir}
     install -m 0644 ${S}/src/sharedMemory.h ${D}${includedir}
     install -m 0644 ${S}/src/signals.h ${D}${includedir}
