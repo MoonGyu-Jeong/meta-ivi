@@ -6,17 +6,16 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=815ca599c9df247a0c7f619bab123dad"
 DEPENDS = "boost dlt-daemon"
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRCREV = "9fb9beecadf52083599302fa8ddee7efbec64a39"
+SRCREV = "13f9c89ced6ffaeb1faf485152e27e1f40d234cd"
 SRC_URI = "git://github.com/GENIVI/${BPN}.git;protocol=https \
-    file://0001-Support-boost-v1.66.patch \
     "
 S = "${WORKDIR}/git"
 
 inherit cmake lib_package gitpkgv
 
-PACKAGES:remove += "${PN}-bin"
-FILES_${PN} += "${bindir}/vsomeipd ${sysconfdir}/${BPN}"
-FILES_${PN}-dev += "${libdir}/cmake"
+PACKAGES:remove = "${PN}-bin"
+FILES:${PN} += "${bindir}/vsomeipd ${sysconfdir}/${BPN}"
+FILES:${PN}-dev += "${libdir}/cmake"
 
 BBCLASSEXTEND = "nativesdk"
 

@@ -10,7 +10,7 @@ DEPENDS = "dlt-daemon"
 
 inherit cmake lib_package pkgconfig
 
-SRCREV = "99ebf3461f51e4899f06457d6aafdaa4adecd278"
+SRCREV = "89720d3c63bbd22cbccc80cdc92c2f2dd20193ba"
 SRC_URI = "git://github.com/GENIVI/capicxx-core-runtime.git;protocol=https \
     "
 S = "${WORKDIR}/git"
@@ -20,4 +20,4 @@ EXTRA_OECMAKE += "-DCMAKE_INSTALL_PREFIX=/usr \
     -DINSTALL_CMAKE_DIR:PATH=${baselib}/cmake/CommonAPI \
     "
 
-FILES_${PN}-dev += "${libdir}/cmake"
+FILES:${PN}-dev += "${libdir}/cmake"
